@@ -137,8 +137,8 @@
         CGContextAddPath(ctx, path.CGPath);
         
         // 绘制
-        CGContextSetStrokeColorWithColor(ctx, self.color);
-        CGContextStrokePath(ctx);
+        CGContextSetFillColorWithColor(ctx, [UIColor.whiteColor colorWithAlphaComponent:0.4].CGColor);
+        CGContextFillPath(ctx);
     }
 }
 
