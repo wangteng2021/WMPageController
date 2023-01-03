@@ -574,6 +574,22 @@
     pView.naughty = self.progressViewIsNaughty;
     pView.speedFactor = self.speedFactor;
     pView.backgroundColor = [UIColor clearColor];
+    if (self.progressImageView && self.colorArray.count > 0) {
+        pView.color = [UIColor clearColor].CGColor;
+        self.progressImageView.frame = CGRectMake(0, 0, frame.size.width, frame.size.height);
+        // gradient
+        CAGradientLayer *gl = [CAGradientLayer layer];
+        gl.frame = self.progressImageView.bounds;
+        gl.startPoint = CGPointMake(1, 0.5);
+        gl.endPoint = CGPointMake(0, 0.5);
+        gl.colors = self.colorArray;
+        gl.locations = @[@(0), @(1.0f)];
+        
+        self.progressImageView.layer.cornerRadius = 4;
+        self.progressImageView.layer.masksToBounds = YES;
+        [self.progressImageView.layer insertSublayer:gl atIndex:0];
+        [pView addSubview:self.progressImageView];
+    }
     self.progressView = pView;
     [self.scrollView insertSubview:self.progressView atIndex:0];
 }
