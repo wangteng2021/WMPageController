@@ -97,6 +97,8 @@ typedef NS_ENUM(NSUInteger, WMMenuViewLayoutMode) {
 @property (nonatomic, strong) UIView *progressImageView;
 /// 颜色
 @property (nonatomic, strong) NSArray *colorArray;
+/// 进度条宽度
+@property (nonatomic, assign) NSInteger progressImageViewWidth;
 
 - (void)slideMenuAtProgress:(CGFloat)progress;
 - (void)selectItemAtIndex:(NSInteger)index;

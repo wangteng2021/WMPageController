@@ -576,7 +576,8 @@
     pView.backgroundColor = [UIColor clearColor];
     if (self.progressImageView && self.colorArray.count > 0) {
         pView.color = [UIColor clearColor].CGColor;
-        self.progressImageView.frame = CGRectMake(0, 0, frame.size.width, frame.size.height);
+        CGFloat x = (frame.size.width - self.progressImageViewWidth) / 2.0;
+        self.progressImageView.frame = CGRectMake(x, 0, self.progressImageViewWidth, frame.size.height);
         // gradient
         CAGradientLayer *gl = [CAGradientLayer layer];
         gl.frame = self.progressImageView.bounds;
